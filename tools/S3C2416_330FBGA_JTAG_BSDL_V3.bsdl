@@ -1,0 +1,1153 @@
+-- *****************************************************************************
+--
+--   BSDL file for design S3C2416 
+--   Package: 330-FBGA
+--   
+--   Created by Synopsys Version Y-2006.06-SP3 (Oct 30, 2006)
+--
+--   Designer: AP
+--   Company:  SAMSUNG ELECTRONICS
+--
+--   Date: Tue Jun  3 22:57:30 2008
+--
+-- *****************************************************************************
+
+
+ entity S3C2416_FBGA330 is
+   
+-- This section identifies the default device package selected.
+   
+   generic (PHYSICAL_PIN_MAP: string:= "FBGA330");
+   
+-- This section declares all the ports in the design.
+   
+   port ( 
+	 PEXTCLK: in bit;
+	 PFRnB: in bit;
+	 PRSMBWAIT: in bit;
+	 PTCK: in bit;
+	 PTDI: in bit;
+	 PTMS: in bit;
+	 PnBATT_FLT: in bit;
+	 PnTRST: in bit;
+	 PnWAIT: in bit;
+	 PEINT: inout bit_vector (0 to 15); 
+--	 PEINT[15]: linkage bit; 
+	 PI2SCDCLK: inout bit;
+	 PI2SLRCK: inout bit;
+	 PI2SSCLK: inout bit;
+	 PI2SSDI: inout bit;
+	 PI2SSDO: inout bit;
+	 PIICSCL: inout bit;
+	 PIICSDA: inout bit;
+	 PLEND: inout bit;
+	 PRSMCLK: inout bit;
+	 PSCLK: inout bit;
+	 PSD0_CLK: inout bit;
+	 PSD0_CMD: inout bit;
+	 PSD1_CLK: inout bit;
+	 PSD1_CMD: inout bit;
+	 PSPICLK0: inout bit;
+	 PSPIMISO0: inout bit;
+	 PSPIMOSI0: inout bit;
+	 PTCLK: inout bit;
+	 PUARTCLK: inout bit;
+	 PVCLK: inout bit;
+	 PVFRAME: inout bit;
+	 PVLINE: inout bit;
+	 PVM: inout bit;
+	 PnXBACK: inout bit;
+	 PCLKOUT: inout bit_vector (0 to 1);
+	 PDQS: inout bit_vector (0 to 1);
+	 PLCDVF: inout bit_vector (0 to 2);
+	 PRDATA: inout bit_vector (0 to 15);
+	 PRXD: inout bit_vector (0 to 3);
+	 PSD0_DAT: inout bit_vector (0 to 3);
+	 PSD1_DAT: inout bit_vector (0 to 3);
+	 PSDATA: inout bit_vector (0 to 31);
+	 PSS: inout bit;
+	 PTOUT: inout bit_vector (0 to 3);
+	 PTXD: inout bit_vector (0 to 3);
+	 PVD: inout bit_vector (0 to 23);
+	 PnCTS: inout bit_vector (0 to 1);
+	 PnRTS: inout bit_vector (0 to 1);
+	 PnXDACK: inout bit;
+	 PnXDREQ: inout bit;
+	 PFALE: out bit;
+	 PFCLE: out bit;
+	 PRSMVAD: out bit;
+	 PSCKE: out bit;
+	 PTDO: out bit;
+	 PnFCE: out bit;
+	 PnFRE: out bit;
+	 PnFWE: out bit;
+	 PnROE: out bit;
+	 PnRWE: out bit;
+	 PnSCAS: out bit;
+	 PnSCLK: out bit;
+	 PnSRAS: out bit;
+	 PnSWE: out bit;
+	 PDQM: out bit_vector (0 to 3);
+	 PRADDR: out bit_vector (0 to 25);
+	 PSADDR: out bit_vector (0 to 15);
+	 PnRBE: out bit_vector (0 to 1);
+	 PnRCS: out bit_vector (0 to 5);
+	 PnSCS: out bit_vector (0 to 1);
+	 PnRSTOUT: buffer bit;
+	 GND0: linkage bit;
+	 GND1: linkage bit;
+	 GND10: linkage bit;
+	 GND11: linkage bit;
+	 GND12: linkage bit;
+	 GND13: linkage bit;
+	 GND14: linkage bit;
+	 GND15: linkage bit;
+	 GND16: linkage bit;
+	 GND17: linkage bit;
+	 GND18: linkage bit;
+	 GND19: linkage bit;
+	 GND2: linkage bit;
+	 GND20: linkage bit;
+	 GND21: linkage bit;
+	 GND22: linkage bit;
+	 GND23: linkage bit;
+	 GND24: linkage bit;
+	 GND25: linkage bit;
+	 GND26: linkage bit;
+	 GND27: linkage bit;
+	 GND28: linkage bit;
+	 GND29: linkage bit;
+	 GND30: linkage bit;
+	 GND31: linkage bit;
+--	 GND32: linkage bit;
+	 GND33: linkage bit;
+	 GND34: linkage bit;
+	 GND4: linkage bit;
+	 GND5: linkage bit;
+	 GND6: linkage bit;
+	 GND7: linkage bit;
+	 GND8: linkage bit;
+	 VSS_LCD: linkage bit;
+--	 PABB_MONITOR: linkage bit;
+	 PDM_UDEV: linkage bit;
+	 PDN: linkage bit;
+	 PDP: linkage bit;
+	 PDP_UDEV: linkage bit;
+	 PFSOURCE: linkage bit;
+	 PPWR_EN: linkage bit;
+	 PREXT: linkage bit;
+--	 PTCXO: linkage bit;
+	 PUPLLCAP: linkage bit;
+	 PVGATE: linkage bit;
+	 PVref: linkage bit;
+	 PWR0: linkage bit;
+	 PWR1: linkage bit;
+	 PWR10: linkage bit;
+	 PWR11: linkage bit;
+	 PWR12: linkage bit;
+	 PWR13: linkage bit;
+	 PWR14: linkage bit;
+	 PWR15: linkage bit;
+	 PWR16: linkage bit;
+	 PWR17: linkage bit;
+	 PWR18: linkage bit;
+	 PWR19: linkage bit;
+	 PWR2: linkage bit;
+	 PWR20: linkage bit;
+	 PWR21: linkage bit;
+	 PWR22: linkage bit;
+	 PWR23: linkage bit;
+	 PWR24: linkage bit;
+	 PWR25: linkage bit;
+	 PWR26: linkage bit;
+	 PWR27: linkage bit;
+	 PWR28: linkage bit;
+	 PWR29: linkage bit;
+	 PWR30: linkage bit;
+	 PWR31: linkage bit;
+	 PWR32: linkage bit;
+--	 PWR33: linkage bit;
+	 PWR34: linkage bit;
+	 PWR35: linkage bit;
+	 PWR4: linkage bit;
+	 PWR5: linkage bit;
+	 PWR6: linkage bit;
+	 PWR7: linkage bit;
+	 PWR8: linkage bit;
+	 VDD_LCD: linkage bit;
+	 VDD_SRAM1: linkage bit;
+	 VDD_SRAM2: linkage bit;	
+	 VDD_SRAM3: linkage bit;
+	 VDD_SRAM4: linkage bit;	 	   
+	 PXI_UDEV: linkage bit;
+	 PXO_UDEV: linkage bit;
+	 PXTipll: linkage bit;
+	 PXTopll: linkage bit;
+	 PXtirtc: linkage bit;
+	 PXtortc: linkage bit;
+	 PnRESET: linkage bit;
+	 PnXBREQ: linkage bit;
+	 PAIN: linkage bit_vector (0 to 9);
+	 POM: in bit_vector (0 to 4)	 
+--	 POM: linkage bit_vector (0 to 4)
+   );
+   
+   use STD_1149_1_2001.all;
+   
+   attribute COMPONENT_CONFORMANCE of S3C2416_FBGA330: entity is "STD_1149_1_2001";
+   
+   attribute PIN_MAP of S3C2416_FBGA330: entity is PHYSICAL_PIN_MAP;
+   
+-- This section specifies the pin map for each port. This information is 
+-- extracted from the port-to-pin map file that was read in using the 
+-- "read_pin_map" command.
+   
+     constant FBGA330: PIN_MAP_STRING := 
+		"PEXTCLK: P15,"&
+		"PFRnB: E3,"&
+		"PRSMBWAIT: C2,"&
+		"PTCK: P20,"&
+		"PTDI: L17,"&
+		"PTMS: P19,"&
+		"PnBATT_FLT: P18,"&
+		"PnTRST: L15,"&
+		"PnWAIT: D3,"&
+		"PEINT: (N15,T18,P17,R18,N17,U19,M17,U20,K17,N19,K15,N20,K14,M20,K13,L18),"&
+		"PI2SCDCLK: P9,"&
+		"PI2SLRCK: R9,"&
+		"PI2SSCLK: Y9,"&
+		"PI2SSDI: Y10,"&
+		"PI2SSDO: N9,"&
+		"PIICSCL: V9,"&
+		"PIICSDA: Y8,"&
+		"PLEND: J1,"&
+		"PRSMCLK: B1,"&
+		"PSCLK: A15,"&
+		"PSD0_CLK: U11,"&
+		"PSD0_CMD: Y12,"&
+		"PSD1_CLK: V13,"&
+		"PSD1_CMD: W14,"&
+		"PSPICLK0: V10,"&
+		"PSPIMISO0: W10,"&
+		"PSPIMOSI0: R10,"&
+		"PTCLK: Y3,"&
+		"PUARTCLK: Y4,"&
+		"PVCLK: L4,"&
+		"PVFRAME: L2,"&
+		"PVLINE: K1,"&
+		"PVM: M4,"&
+		"PnXBACK: U6,"&
+		"PCLKOUT: (V8,Y7),"&
+		"PDQS: (C14,F14),"&
+		"PLCDVF: (M6,L1,N4),"&
+		"PRDATA: (H2,K6,H3,L7,G1,K7,G2,K8,G3,K4,F1,J6,F2"&
+		",J4,E1,H7),"&
+		"PRXD: (V6,W6,Y11,W11),"&
+		"PSD0_DAT: (V12,W13,U12,Y14),"&
+		"PSD1_DAT: (U13,Y15,R12,W15),"&
+		"PSDATA: (A17,D15,B17,G14,C17,D16,A18,D17,B18,B20,"&
+		"A19,C20,B19,C19,C18,E17,D20,F17,E18,G15,E19,G17,E20,"&
+		"H15,F18,H17,F19,J14,F20,J15,G20,J18),"&
+		"PSS: V11,"&
+		"PTOUT: (T4,V2,U4,W1),"&
+		"PTXD: (P8,V7,R11,U10),"&
+		"PVD: (M3,N7,M2,N8,M1,N6,N1,P6,N2,P7,R4,P1,T3"&
+		",P2,W2,R1,Y2,R2,W3,T1,V3,U2,U3,V1),"&
+		"PnCTS: (R7,R8),"&
+		"PnRTS: (W5,Y5),"&
+		"PnXDACK: W4,"&
+		"PnXDREQ: U5,"&
+		"PFALE: D2,"&
+		"PFCLE: G4,"&
+		"PRSMVAD: E4,"&
+		"PSCKE: B14,"&
+		"PTDO: M13,"&
+		"PnFCE: H4,"&
+		"PnFRE: D1,"&
+		"PnFWE: H6,"&
+		"PnROE: D6,"&
+		"PnRWE: A2,"&
+		"PnSCAS: A14,"&
+		"PnSCLK: F12,"&
+		"PnSRAS: G12,"&
+		"PnSWE: D13,"&
+		"PDQM: (A16,C13,B16,D14),"&
+		"PRADDR: (B3,D7,A3,H8,C4,G8,B4,F8,A4,D8,"&
+		"A5,H9,C6,G9,B6,F9,A6,D9,C7,C9,B7,H10,A7,"&
+		"G10,C8,F10),"&
+		"PSADDR: (C12,B13,D12,A13,H12,B12,C11,A11,D11,A10,"&
+		"F11,B10,C10,A9,D10,B9),"&
+		"PnRBE: (C3,F7),"&
+		"PnRCS: (D5,B2,D4,F4,C1,G6),"&
+		"PnSCS: (F13,B15),"&
+		"PnRSTOUT: N18,"&
+		"GND0: N10,"&
+		"GND1: E2,"&
+		"GND10: U7,"&
+		"GND11: W7,"&
+		"GND12: U8,"&
+		"GND13: U9,"&
+		"GND14: Y13,"&
+		"GND15: L6,"&
+		"GND16: V15,"&
+		"GND17: W16,"&
+		"GND18: P11,"&
+		"GND19: N13,"&
+		"GND2: J7,"&
+		"GND20: T20,"&
+		"GND21: R20,"&
+		"GND22: M19,"&
+		"GND23: L20,"&
+		"GND24: K20,"&
+		"GND25: H18,"&
+		"GND26: J17,"&
+		"GND27: H13,"&
+		"GND28: C15,"&
+		"GND29: D18,"&
+		"GND30: M8,"&
+		"GND31: B11,"&
+--		"GND32: 326,"&
+		"GND33: J3,"&
+		"GND34: B5,"&
+		"GND4: H11,"&
+		"GND5: P3,"&
+		"GND6: P4,"&
+		"GND7: K3,"&
+		"GND8: L3,"&
+		"VSS_LCD: T2,"&
+--		"PABB_MONITOR: 327,"&
+		"PDM_UDEV: J20,"&
+		"PDN: L13,"&
+		"PDP: L14,"&
+		"PDP_UDEV: H19,"&
+		"PFSOURCE: A8,"&
+		"PPWR_EN: M15,"&
+		"PREXT: H20,"&
+--		"PTCXO: L18,"&
+		"PUPLLCAP: V16,"&
+		"PVGATE: B8,"&
+		"PVref: U15,"&
+		"PWR0: L8,"&
+		"PWR1: C5,"&
+		"PWR10: K2,"&
+		"PWR11: Y6,"&
+		"PWR12: V5,"&
+		"PWR13: N3,"&
+		"PWR14: W12,"&
+		"PWR15: J13,"&
+		"PWR16: Y16,"&
+		"PWR17: Y17,"&
+		"PWR18: R14,"&
+		"PWR19: W19,"&
+		"PWR2: P10,"&
+		"PWR20: M7,"&
+		"PWR21: T19,"&
+		"PWR22: R19,"&
+		"PWR23: M18,"&
+		"PWR24: L19,"&
+		"PWR25: J19,"&
+		"PWR26: G18,"&
+		"PWR27: G19,"&
+		"PWR28: G11,"&
+		"PWR29: C16,"&
+		"VDD_LCD: U1,"&
+		"VDD_SRAM1: H1,"&
+		"VDD_SRAM2: H14,"&	
+		"VDD_SRAM3: P13,"&	
+		"VDD_SRAM4: N12,"&								
+		"PWR30: D19,"&
+		"PWR31: N14,"&
+		"PWR32: A12,"&
+--		"PWR33: 325,"&
+		"PWR34: G13,"&
+		"PWR35: F3,"&
+		"PWR4: J8,"&
+		"PWR5: W8,"&
+		"PWR6: W9,"&
+		"PWR7: R3,"&
+		"PWR8: J2,"&
+		"PXI_UDEV: K19,"&
+		"PXO_UDEV: K18,"&
+		"PXTipll: V20,"&
+		"PXTopll: U18,"&
+		"PXtirtc: W20,"&
+		"PXtortc: T17,"&
+		"PnRESET: M14,"&
+		"PnXBREQ: V4,"&
+		"PAIN: (Y19,U14,W18,N11,Y18,P12,V17,V14,W17,R13),"&
+		"POM: (R17,U17,V19,U16,V18)";
+   
+-- This section specifies the TAP ports. For the TAP TCK port, the parameters in 
+-- the brackets are:
+--        First Field : Maximum  TCK frequency.
+--        Second Field: Allowable states TCK may be stopped in.
+   
+   attribute TAP_SCAN_CLOCK of PTCK  : signal is (1.000000e+06, BOTH);
+   attribute TAP_SCAN_IN    of PTDI  : signal is true;
+   attribute TAP_SCAN_MODE  of PTMS  : signal is true;
+   attribute TAP_SCAN_OUT   of PTDO  : signal is true;
+   attribute TAP_SCAN_RESET of PnTRST: signal is true;
+   
+-- Specifies the compliance enable patterns for the design. It lists a set of 
+-- design ports and the values that they should be set to, in order to enable 
+-- compliance to IEEE Std 1149.1
+   
+   attribute COMPLIANCE_PATTERNS of S3C2416_FBGA330: entity is 
+        "(POM(0), POM(1), POM(2), POM(3), POM(4)) (10001)";
+   
+-- Specifies the number of bits in the instruction register.
+   
+   attribute INSTRUCTION_LENGTH of S3C2416_FBGA330: entity is 4;
+   
+-- Specifies the boundary-scan instructions implemented in the design and their 
+-- opcodes.
+   
+   attribute INSTRUCTION_OPCODE of S3C2416_FBGA330: entity is 
+     "BYPASS  (1111)," &
+     "EXTEST  (0000)," &
+     "SAMPLE  (0011)," &
+     "PRELOAD (0011)," &
+     "IDCODE  (1110)";
+   
+-- Specifies the bit pattern that is loaded into the instruction register when 
+-- the TAP controller passes through the Capture-IR state. The standard mandates 
+-- that the two LSBs must be "01". The remaining bits are design specific.
+   
+   attribute INSTRUCTION_CAPTURE of S3C2416_FBGA330: entity is "0001";
+   
+-- Specifies the bit pattern that is loaded into the DEVICE_ID register during 
+-- the IDCODE instruction when the TAP controller passes through the Capture-DR 
+-- state.
+   
+   attribute IDCODE_REGISTER of S3C2416_FBGA330: entity is 
+     "0000" &                  
+ -- 4-bit version number
+     "0111100100100110" &       
+ -- 16-bit part number
+     "11110000111" &           
+ -- 11-bit identity of the manufacturer
+     "1";                      
+ -- Required by IEEE Std 1149.1
+   
+-- This section specifies the test data register placed between TDI and TDO for 
+-- each implemented instruction.
+   
+   attribute REGISTER_ACCESS of S3C2416_FBGA330: entity is 
+        "BYPASS    (BYPASS)," &
+        "BOUNDARY  (EXTEST, SAMPLE, PRELOAD)," &
+        "DEVICE_ID (IDCODE)";
+   
+-- Specifies the length of the boundary scan register.
+   
+   attribute BOUNDARY_LENGTH of S3C2416_FBGA330: entity is 685;
+   
+-- The following list specifies the characteristics of each cell in the boundary 
+-- scan register from TDI to TDO. The following is a description of the label 
+-- fields:
+--      num     : Is the cell number.
+--      cell    : Is the cell type as defined by the standard.
+--      port    : Is the design port name. Control cells do not have a port 
+--                name.
+--      function: Is the function of the cell as defined by the standard. Is one 
+--                of input, output2, output3, bidir, control or controlr.
+--      safe    : Specifies the value that the BSR cell should be loaded with 
+--                for safe operation when the software might otherwise choose a 
+--                random value.
+--      ccell   : The control cell number. Specifies the control cell that 
+--                drives the output enable for this port.
+--      disval  : Specifies the value that is loaded into the control cell to 
+--                disable the output enable for the corresponding port.
+--      rslt    : Resulting state. Shows the state of the driver when it is 
+--                disabled.
+   
+   attribute BOUNDARY_REGISTER of S3C2416_FBGA330: entity is 
+--     
+--    num   cell   port          function      safe  [ccell  disval  rslt]
+--     
+     "684  (BC_1,  PnRSTOUT,     output2,      X),                        " &
+     "683  (BC_4,  PEINT(8),     observe_only, X),                        " &
+     "682  (BC_1,  *,            control,      0),                        " &
+     "681  (BC_1,  PEINT(8),     output3,      X,    682,    0,      Z),  " &
+     "680  (BC_4,  PEINT(9),     observe_only, X),                        " &
+     "679  (BC_1,  *,            control,      0),                        " &
+     "678  (BC_1,  PEINT(9),     output3,      X,    679,    0,      Z),  " &
+     "677  (BC_4,  PEINT(10),    observe_only, X),                        " &
+     "676  (BC_1,  *,            control,      0),                        " &
+     "675  (BC_1,  PEINT(10),    output3,      X,    676,    0,      Z),  " &
+     "674  (BC_4,  PEINT(11),    observe_only, X),                        " &
+     "673  (BC_1,  *,            control,      0),                        " &
+     "672  (BC_1,  PEINT(11),    output3,      X,    673,    0,      Z),  " &
+     "671  (BC_4,  PEINT(12),    observe_only, X),                        " &
+     "670  (BC_1,  *,            control,      0),                        " &
+     "669  (BC_1,  PEINT(12),    output3,      X,    670,    0,      Z),  " &
+     "668  (BC_4,  PEINT(13),    observe_only, X),                        " &
+     "667  (BC_1,  *,            control,      0),                        " &
+     "666  (BC_1,  PEINT(13),    output3,      X,    667,    0,      Z),  " &
+     "665  (BC_4,  PEINT(14),    observe_only, X),                        " &
+     "664  (BC_1,  *,            control,      0),                        " &
+     "663  (BC_1,  PEINT(14),    output3,      X,    664,    0,      Z),  " &
+     "662  (BC_4,  PSDATA(31),   observe_only, X),                        " &
+     "661  (BC_1,  *,            control,      0),                        " &
+     "660  (BC_1,  PSDATA(31),   output3,      X,    661,    0,      Z),  " &
+     "659  (BC_4,  PSDATA(30),   observe_only, X),                        " &
+     "658  (BC_1,  *,            control,      0),                        " &
+     "657  (BC_1,  PSDATA(30),   output3,      X,    658,    0,      Z),  " &
+     "656  (BC_4,  PSDATA(29),   observe_only, X),                        " &
+     "655  (BC_1,  *,            control,      0),                        " &
+     "654  (BC_1,  PSDATA(29),   output3,      X,    655,    0,      Z),  " &
+     "653  (BC_4,  PSDATA(28),   observe_only, X),                        " &
+     "652  (BC_1,  *,            control,      0),                        " &
+     "651  (BC_1,  PSDATA(28),   output3,      X,    652,    0,      Z),  " &
+     "650  (BC_4,  PSDATA(27),   observe_only, X),                        " &
+     "649  (BC_1,  *,            control,      0),                        " &
+     "648  (BC_1,  PSDATA(27),   output3,      X,    649,    0,      Z),  " &
+     "647  (BC_4,  PSDATA(26),   observe_only, X),                        " &
+     "646  (BC_1,  *,            control,      0),                        " &
+     "645  (BC_1,  PSDATA(26),   output3,      X,    646,    0,      Z),  " &
+     "644  (BC_4,  PSDATA(25),   observe_only, X),                        " &
+     "643  (BC_1,  *,            control,      0),                        " &
+     "642  (BC_1,  PSDATA(25),   output3,      X,    643,    0,      Z),  " &
+     "641  (BC_4,  PSDATA(24),   observe_only, X),                        " &
+     "640  (BC_1,  *,            control,      0),                        " &
+     "639  (BC_1,  PSDATA(24),   output3,      X,    640,    0,      Z),  " &
+     "638  (BC_4,  PSDATA(23),   observe_only, X),                        " &
+     "637  (BC_1,  *,            control,      0),                        " &
+     "636  (BC_1,  PSDATA(23),   output3,      X,    637,    0,      Z),  " &
+     "635  (BC_4,  PSDATA(22),   observe_only, X),                        " &
+     "634  (BC_1,  *,            control,      0),                        " &
+     "633  (BC_1,  PSDATA(22),   output3,      X,    634,    0,      Z),  " &
+     "632  (BC_4,  PSDATA(21),   observe_only, X),                        " &
+     "631  (BC_1,  *,            control,      0),                        " &
+     "630  (BC_1,  PSDATA(21),   output3,      X,    631,    0,      Z),  " &
+     "629  (BC_4,  PSDATA(20),   observe_only, X),                        " &
+     "628  (BC_1,  *,            control,      0),                        " &
+     "627  (BC_1,  PSDATA(20),   output3,      X,    628,    0,      Z),  " &
+     "626  (BC_4,  PSDATA(19),   observe_only, X),                        " &
+     "625  (BC_1,  *,            control,      0),                        " &
+     "624  (BC_1,  PSDATA(19),   output3,      X,    625,    0,      Z),  " &
+     "623  (BC_4,  PSDATA(18),   observe_only, X),                        " &
+     "622  (BC_1,  *,            control,      0),                        " &
+     "621  (BC_1,  PSDATA(18),   output3,      X,    622,    0,      Z),  " &
+     "620  (BC_4,  PSDATA(17),   observe_only, X),                        " &
+     "619  (BC_1,  *,            control,      0),                        " &
+     "618  (BC_1,  PSDATA(17),   output3,      X,    619,    0,      Z),  " &
+     "617  (BC_4,  PSDATA(16),   observe_only, X),                        " &
+     "616  (BC_1,  *,            control,      0),                        " &
+     "615  (BC_1,  PSDATA(16),   output3,      X,    616,    0,      Z),  " &
+     "614  (BC_4,  PSDATA(15),   observe_only, X),                        " &
+     "613  (BC_1,  *,            control,      0),                        " &
+     "612  (BC_1,  PSDATA(15),   output3,      X,    613,    0,      Z),  " &
+     "611  (BC_4,  PSDATA(14),   observe_only, X),                        " &
+     "610  (BC_1,  *,            control,      0),                        " &
+     "609  (BC_1,  PSDATA(14),   output3,      X,    610,    0,      Z),  " &
+     "608  (BC_4,  PSDATA(13),   observe_only, X),                        " &
+     "607  (BC_1,  *,            control,      0),                        " &
+     "606  (BC_1,  PSDATA(13),   output3,      X,    607,    0,      Z),  " &
+     "605  (BC_4,  PSDATA(12),   observe_only, X),                        " &
+     "604  (BC_1,  *,            control,      0),                        " &
+     "603  (BC_1,  PSDATA(12),   output3,      X,    604,    0,      Z),  " &
+     "602  (BC_4,  PSDATA(11),   observe_only, X),                        " &
+     "601  (BC_1,  *,            control,      0),                        " &
+     "600  (BC_1,  PSDATA(11),   output3,      X,    601,    0,      Z),  " &
+     "599  (BC_4,  PSDATA(10),   observe_only, X),                        " &
+     "598  (BC_1,  *,            control,      0),                        " &
+     "597  (BC_1,  PSDATA(10),   output3,      X,    598,    0,      Z),  " &
+     "596  (BC_4,  PSDATA(9),    observe_only, X),                        " &
+     "595  (BC_1,  *,            control,      0),                        " &
+     "594  (BC_1,  PSDATA(9),    output3,      X,    595,    0,      Z),  " &
+     "593  (BC_4,  PSDATA(8),    observe_only, X),                        " &
+     "592  (BC_1,  *,            control,      0),                        " &
+     "591  (BC_1,  PSDATA(8),    output3,      X,    592,    0,      Z),  " &
+     "590  (BC_4,  PSDATA(7),    observe_only, X),                        " &
+     "589  (BC_1,  *,            control,      0),                        " &
+     "588  (BC_1,  PSDATA(7),    output3,      X,    589,    0,      Z),  " &
+     "587  (BC_4,  PSDATA(6),    observe_only, X),                        " &
+     "586  (BC_1,  *,            control,      0),                        " &
+     "585  (BC_1,  PSDATA(6),    output3,      X,    586,    0,      Z),  " &
+     "584  (BC_4,  PSDATA(5),    observe_only, X),                        " &
+     "583  (BC_1,  *,            control,      0),                        " &
+     "582  (BC_1,  PSDATA(5),    output3,      X,    583,    0,      Z),  " &
+     "581  (BC_4,  PSDATA(4),    observe_only, X),                        " &
+     "580  (BC_1,  *,            control,      0),                        " &
+     "579  (BC_1,  PSDATA(4),    output3,      X,    580,    0,      Z),  " &
+     "578  (BC_4,  PSDATA(3),    observe_only, X),                        " &
+     "577  (BC_1,  *,            control,      0),                        " &
+     "576  (BC_1,  PSDATA(3),    output3,      X,    577,    0,      Z),  " &
+     "575  (BC_4,  PSDATA(2),    observe_only, X),                        " &
+     "574  (BC_1,  *,            control,      0),                        " &
+     "573  (BC_1,  PSDATA(2),    output3,      X,    574,    0,      Z),  " &
+     "572  (BC_4,  PSDATA(1),    observe_only, X),                        " &
+     "571  (BC_1,  *,            control,      0),                        " &
+     "570  (BC_1,  PSDATA(1),    output3,      X,    571,    0,      Z),  " &
+     "569  (BC_4,  PSDATA(0),    observe_only, X),                        " &
+     "568  (BC_1,  *,            control,      0),                        " &
+     "567  (BC_1,  PSDATA(0),    output3,      X,    568,    0,      Z),  " &
+     "566  (BC_4,  PDQS(1),      observe_only, X),                        " &
+     "565  (BC_1,  *,            control,      0),                        " &
+     "564  (BC_1,  PDQS(1),      output3,      X,    565,    0,      Z),  " &
+     "563  (BC_4,  PDQS(0),      observe_only, X),                        " &
+     "562  (BC_1,  *,            control,      0),                        " &
+     "561  (BC_1,  PDQS(0),      output3,      X,    562,    0,      Z),  " &
+     "560  (BC_2,  *,            control,      0),                        " &
+     "559  (BC_1,  PDQM(3),      output3,      X,    560,    0,      Z),  " &
+     "558  (BC_2,  *,            control,      0),                        " &
+     "557  (BC_1,  PDQM(2),      output3,      X,    558,    0,      Z),  " &
+     "556  (BC_2,  *,            control,      0),                        " &
+     "555  (BC_1,  PDQM(1),      output3,      X,    556,    0,      Z),  " &
+     "554  (BC_2,  *,            control,      0),                        " &
+     "553  (BC_1,  PDQM(0),      output3,      X,    554,    0,      Z),  " &
+     "552  (BC_2,  *,            control,      0),                        " &
+     "551  (BC_1,  PnSCS(0),     output3,      X,    552,    0,      Z),  " &
+     "550  (BC_2,  *,            control,      0),                        " &
+     "549  (BC_1,  PnSCS(1),     output3,      X,    550,    0,      Z),  " &
+     "548  (BC_2,  *,            control,      0),                        " &
+     "547  (BC_1,  PnSWE,        output3,      X,    548,    0,      Z),  " &
+     "546  (BC_4,  PSCLK,        observe_only, X),                        " &
+     "545  (BC_1,  *,            control,      0),                        " &
+     "544  (BC_1,  PSCLK,        output3,      X,    545,    0,      Z),  " &
+     "543  (BC_2,  *,            control,      0),                        " &
+     "542  (BC_1,  PnSCLK,       output3,      X,    543,    0,      Z),  " &
+     "541  (BC_2,  *,            control,      0),                        " &
+     "540  (BC_1,  PSCKE,        output3,      X,    541,    0,      Z),  " &
+     "539  (BC_2,  *,            control,      0),                        " &
+     "538  (BC_1,  PnSRAS,       output3,      X,    539,    0,      Z),  " &
+     "537  (BC_2,  *,            control,      0),                        " &
+     "536  (BC_1,  PnSCAS,       output3,      X,    537,    0,      Z),  " &
+     "535  (BC_2,  *,            control,      0),                        " &
+     "534  (BC_1,  PSADDR(0),    output3,      X,    535,    0,      Z),  " &
+     "533  (BC_2,  *,            control,      0),                        " &
+     "532  (BC_1,  PSADDR(1),    output3,      X,    533,    0,      Z),  " &
+     "531  (BC_2,  *,            control,      0),                        " &
+     "530  (BC_1,  PSADDR(2),    output3,      X,    531,    0,      Z),  " &
+     "529  (BC_2,  *,            control,      0),                        " &
+     "528  (BC_1,  PSADDR(3),    output3,      X,    529,    0,      Z),  " &
+     "527  (BC_2,  *,            control,      0),                        " &
+     "526  (BC_1,  PSADDR(4),    output3,      X,    527,    0,      Z),  " &
+     "525  (BC_2,  *,            control,      0),                        " &
+     "524  (BC_1,  PSADDR(5),    output3,      X,    525,    0,      Z),  " &
+     "523  (BC_2,  *,            control,      0),                        " &
+     "522  (BC_1,  PSADDR(6),    output3,      X,    523,    0,      Z),  " &
+     "521  (BC_2,  *,            control,      0),                        " &
+     "520  (BC_1,  PSADDR(7),    output3,      X,    521,    0,      Z),  " &
+     "519  (BC_2,  *,            control,      0),                        " &
+     "518  (BC_1,  PSADDR(8),    output3,      X,    519,    0,      Z),  " &
+     "517  (BC_2,  *,            control,      0),                        " &
+     "516  (BC_1,  PSADDR(9),    output3,      X,    517,    0,      Z),  " &
+     "515  (BC_2,  *,            control,      0),                        " &
+     "514  (BC_1,  PSADDR(10),   output3,      X,    515,    0,      Z),  " &
+     "513  (BC_2,  *,            control,      0),                        " &
+     "512  (BC_1,  PSADDR(11),   output3,      X,    513,    0,      Z),  " &
+     "511  (BC_2,  *,            control,      0),                        " &
+     "510  (BC_1,  PSADDR(12),   output3,      X,    511,    0,      Z),  " &
+     "509  (BC_2,  *,            control,      0),                        " &
+     "508  (BC_1,  PSADDR(13),   output3,      X,    509,    0,      Z),  " &
+     "507  (BC_2,  *,            control,      0),                        " &
+     "506  (BC_1,  PSADDR(14),   output3,      X,    507,    0,      Z),  " &
+     "505  (BC_2,  *,            control,      0),                        " &
+     "504  (BC_1,  PSADDR(15),   output3,      X,    505,    0,      Z),  " &
+     "503  (BC_2,  *,            control,      0),                        " &
+     "502  (BC_1,  *,            control,      X,    503,    0,      Z),  " &
+     "501  (BC_2,  *,            control,      0),                        " &
+     "500  (BC_1,  *,            control,      X,    501,    0,      Z),  " &
+     "499  (BC_2,  *,            control,      0),                        " &
+     "498  (BC_1,  PRADDR(25),   output3,      X,    499,    0,      Z),  " &
+     "497  (BC_2,  *,            control,      0),                        " &
+     "496  (BC_1,  PRADDR(24),   output3,      X,    497,    0,      Z),  " &
+     "495  (BC_2,  *,            control,      0),                        " &
+     "494  (BC_1,  PRADDR(23),   output3,      X,    495,    0,      Z),  " &
+     "493  (BC_2,  *,            control,      0),                        " &
+     "492  (BC_1,  PRADDR(22),   output3,      X,    493,    0,      Z),  " &
+     "491  (BC_2,  *,            control,      0),                        " &
+     "490  (BC_1,  PRADDR(21),   output3,      X,    491,    0,      Z),  " &
+     "489  (BC_2,  *,            control,      0),                        " &
+     "488  (BC_1,  PRADDR(20),   output3,      X,    489,    0,      Z),  " &
+     "487  (BC_2,  *,            control,      0),                        " &
+     "486  (BC_1,  PRADDR(19),   output3,      X,    487,    0,      Z),  " &
+     "485  (BC_2,  *,            control,      0),                        " &
+     "484  (BC_1,  PRADDR(18),   output3,      X,    485,    0,      Z),  " &
+     "483  (BC_2,  *,            control,      0),                        " &
+     "482  (BC_1,  PRADDR(17),   output3,      X,    483,    0,      Z),  " &
+     "481  (BC_2,  *,            control,      0),                        " &
+     "480  (BC_1,  PRADDR(16),   output3,      X,    481,    0,      Z),  " &
+     "479  (BC_2,  *,            control,      0),                        " &
+     "478  (BC_1,  PRADDR(15),   output3,      X,    479,    0,      Z),  " &
+     "477  (BC_2,  *,            control,      0),                        " &
+     "476  (BC_1,  PRADDR(14),   output3,      X,    477,    0,      Z),  " &
+     "475  (BC_2,  *,            control,      0),                        " &
+     "474  (BC_1,  PRADDR(13),   output3,      X,    475,    0,      Z),  " &
+     "473  (BC_2,  *,            control,      0),                        " &
+     "472  (BC_1,  PRADDR(12),   output3,      X,    473,    0,      Z),  " &
+     "471  (BC_2,  *,            control,      0),                        " &
+     "470  (BC_1,  PRADDR(11),   output3,      X,    471,    0,      Z),  " &
+     "469  (BC_2,  *,            control,      0),                        " &
+     "468  (BC_1,  PRADDR(10),   output3,      X,    469,    0,      Z),  " &
+     "467  (BC_2,  *,            control,      0),                        " &
+     "466  (BC_1,  PRADDR(9),    output3,      X,    467,    0,      Z),  " &
+     "465  (BC_2,  *,            control,      0),                        " &
+     "464  (BC_1,  PRADDR(8),    output3,      X,    465,    0,      Z),  " &
+     "463  (BC_2,  *,            control,      0),                        " &
+     "462  (BC_1,  PRADDR(7),    output3,      X,    463,    0,      Z),  " &
+     "461  (BC_2,  *,            control,      0),                        " &
+     "460  (BC_1,  PRADDR(6),    output3,      X,    461,    0,      Z),  " &
+     "459  (BC_2,  *,            control,      0),                        " &
+     "458  (BC_1,  PRADDR(5),    output3,      X,    459,    0,      Z),  " &
+     "457  (BC_2,  *,            control,      0),                        " &
+     "456  (BC_1,  PRADDR(4),    output3,      X,    457,    0,      Z),  " &
+     "455  (BC_2,  *,            control,      0),                        " &
+     "454  (BC_1,  PRADDR(3),    output3,      X,    455,    0,      Z),  " &
+     "453  (BC_2,  *,            control,      0),                        " &
+     "452  (BC_1,  PRADDR(2),    output3,      X,    453,    0,      Z),  " &
+     "451  (BC_2,  *,            control,      0),                        " &
+     "450  (BC_1,  PRADDR(1),    output3,      X,    451,    0,      Z),  " &
+     "449  (BC_2,  *,            control,      0),                        " &
+     "448  (BC_1,  PRADDR(0),    output3,      X,    449,    0,      Z),  " &
+     "447  (BC_2,  *,            control,      0),                        " &
+     "446  (BC_1,  PnRBE(1),     output3,      X,    447,    0,      Z),  " &
+     "445  (BC_2,  *,            control,      0),                        " &
+     "444  (BC_1,  PnRBE(0),     output3,      X,    445,    0,      Z),  " &
+     "443  (BC_2,  *,            control,      0),                        " &
+     "442  (BC_1,  PnROE,        output3,      X,    443,    0,      Z),  " &
+     "441  (BC_2,  *,            control,      0),                        " &
+     "440  (BC_1,  PnRWE,        output3,      X,    441,    0,      Z),  " &
+     "439  (BC_2,  *,            control,      0),                        " &
+     "438  (BC_1,  PnRCS(0),     output3,      X,    439,    0,      Z),  " &
+     "437  (BC_2,  *,            control,      0),                        " &
+     "436  (BC_1,  PnRCS(1),     output3,      X,    437,    0,      Z),  " &
+     "435  (BC_2,  *,            control,      0),                        " &
+     "434  (BC_1,  PnRCS(2),     output3,      X,    435,    0,      Z),  " &
+     "433  (BC_4,  PRSMCLK,      observe_only, X),                        " &
+     "432  (BC_1,  *,            control,      0),                        " &
+     "431  (BC_1,  PRSMCLK,      output3,      X,    432,    0,      Z),  " &
+     "430  (BC_2,  *,            control,      0),                        " &
+     "429  (BC_1,  PRSMVAD,      output3,      X,    430,    0,      Z),  " &
+     "428  (BC_4,  PRSMBWAIT,    observe_only, X),                        " &
+     "427  (BC_2,  *,            control,      0),                        " &
+     "426  (BC_1,  PnRCS(3),     output3,      X,    427,    0,      Z),  " &
+     "425  (BC_2,  *,            control,      0),                        " &
+     "424  (BC_1,  PnRCS(4),     output3,      X,    425,    0,      Z),  " &
+     "423  (BC_2,  *,            control,      0),                        " &
+     "422  (BC_1,  PnRCS(5),     output3,      X,    423,    0,      Z),  " &
+     "421  (BC_4,  PnWAIT,       observe_only, X),                        " &
+     "420  (BC_2,  *,            control,      0),                        " &
+     "419  (BC_1,  PFCLE,        output3,      X,    420,    0,      Z),  " &
+     "418  (BC_2,  *,            control,      0),                        " &
+     "417  (BC_1,  PFALE,        output3,      X,    418,    0,      Z),  " &
+     "416  (BC_2,  *,            control,      0),                        " &
+     "415  (BC_1,  PnFWE,        output3,      X,    416,    0,      Z),  " &
+     "414  (BC_2,  *,            control,      0),                        " &
+     "413  (BC_1,  PnFRE,        output3,      X,    414,    0,      Z),  " &
+     "412  (BC_2,  *,            control,      0),                        " &
+     "411  (BC_1,  PnFCE,        output3,      X,    412,    0,      Z),  " &
+     "410  (BC_4,  PFRnB,        observe_only, X),                        " &
+     "409  (BC_4,  PRDATA(15),   observe_only, X),                        " &
+     "408  (BC_1,  *,            control,      0),                        " &
+     "407  (BC_1,  PRDATA(15),   output3,      X,    408,    0,      Z),  " &
+     "406  (BC_4,  PRDATA(14),   observe_only, X),                        " &
+     "405  (BC_1,  *,            control,      0),                        " &
+     "404  (BC_1,  PRDATA(14),   output3,      X,    405,    0,      Z),  " &
+     "403  (BC_4,  PRDATA(13),   observe_only, X),                        " &
+     "402  (BC_1,  *,            control,      0),                        " &
+     "401  (BC_1,  PRDATA(13),   output3,      X,    402,    0,      Z),  " &
+     "400  (BC_4,  PRDATA(12),   observe_only, X),                        " &
+     "399  (BC_1,  *,            control,      0),                        " &
+     "398  (BC_1,  PRDATA(12),   output3,      X,    399,    0,      Z),  " &
+     "397  (BC_4,  PRDATA(11),   observe_only, X),                        " &
+     "396  (BC_1,  *,            control,      0),                        " &
+     "395  (BC_1,  PRDATA(11),   output3,      X,    396,    0,      Z),  " &
+     "394  (BC_4,  PRDATA(10),   observe_only, X),                        " &
+     "393  (BC_1,  *,            control,      0),                        " &
+     "392  (BC_1,  PRDATA(10),   output3,      X,    393,    0,      Z),  " &
+     "391  (BC_4,  PRDATA(9),    observe_only, X),                        " &
+     "390  (BC_1,  *,            control,      0),                        " &
+     "389  (BC_1,  PRDATA(9),    output3,      X,    390,    0,      Z),  " &
+     "388  (BC_4,  PRDATA(8),    observe_only, X),                        " &
+     "387  (BC_1,  *,            control,      0),                        " &
+     "386  (BC_1,  PRDATA(8),    output3,      X,    387,    0,      Z),  " &
+     "385  (BC_4,  PRDATA(7),    observe_only, X),                        " &
+     "384  (BC_1,  *,            control,      0),                        " &
+     "383  (BC_1,  PRDATA(7),    output3,      X,    384,    0,      Z),  " &
+     "382  (BC_4,  PRDATA(6),    observe_only, X),                        " &
+     "381  (BC_1,  *,            control,      0),                        " &
+     "380  (BC_1,  PRDATA(6),    output3,      X,    381,    0,      Z),  " &
+     "379  (BC_4,  PRDATA(5),    observe_only, X),                        " &
+     "378  (BC_1,  *,            control,      0),                        " &
+     "377  (BC_1,  PRDATA(5),    output3,      X,    378,    0,      Z),  " &
+     "376  (BC_4,  PRDATA(4),    observe_only, X),                        " &
+     "375  (BC_1,  *,            control,      0),                        " &
+     "374  (BC_1,  PRDATA(4),    output3,      X,    375,    0,      Z),  " &
+     "373  (BC_4,  PRDATA(3),    observe_only, X),                        " &
+     "372  (BC_1,  *,            control,      0),                        " &
+     "371  (BC_1,  PRDATA(3),    output3,      X,    372,    0,      Z),  " &
+     "370  (BC_4,  PRDATA(2),    observe_only, X),                        " &
+     "369  (BC_1,  *,            control,      0),                        " &
+     "368  (BC_1,  PRDATA(2),    output3,      X,    369,    0,      Z),  " &
+     "367  (BC_4,  PRDATA(1),    observe_only, X),                        " &
+     "366  (BC_1,  *,            control,      0),                        " &
+     "365  (BC_1,  PRDATA(1),    output3,      X,    366,    0,      Z),  " &
+     "364  (BC_4,  PRDATA(0),    observe_only, X),                        " &
+     "363  (BC_1,  *,            control,      0),                        " &
+     "362  (BC_1,  PRDATA(0),    output3,      X,    363,    0,      Z),  " &
+     "361  (BC_4,  *,            control, X),                        " &
+     "360  (BC_1,  *,            control,      0),                        " &
+     "359  (BC_1,  *,            control,      X,    360,    0,      Z),  " &
+     "358  (BC_4,  *,            control, X),                        " &
+     "357  (BC_1,  *,            control,      0),                        " &
+     "356  (BC_1,  *,            control,      X,    357,    0,      Z),  " &
+     "355  (BC_4,  *,            control, X),                        " &
+     "354  (BC_1,  *,            control,      0),                        " &
+     "353  (BC_1,  *,            control,      X,    354,    0,      Z),  " &
+     "352  (BC_4,  *,            control, X),                        " &
+     "351  (BC_1,  *,            control,      0),                        " &
+     "350  (BC_1,  *,            control,      X,    351,    0,      Z),  " &
+     "349  (BC_4,  *,            control, X),                        " &
+     "348  (BC_1,  *,            control,      0),                        " &
+     "347  (BC_1,  *,            control,      X,    348,    0,      Z),  " &
+     "346  (BC_4,  *,            control, X),                        " &
+     "345  (BC_1,  *,            control,      0),                        " &
+     "344  (BC_1,  *,            control,      X,    345,    0,      Z),  " &
+     "343  (BC_4,  *,            control, X),                        " &
+     "342  (BC_1,  *,            control,      0),                        " &
+     "341  (BC_1,  *,            control,      X,    342,    0,      Z),  " &
+     "340  (BC_4,  *,            control, X),                        " &
+     "339  (BC_1,  *,            control,      0),                        " &
+     "338  (BC_1,  *,            control,      X,    339,    0,      Z),  " &
+     "337  (BC_4,  *,            control, X),                        " &
+     "336  (BC_1,  *,            control,      0),                        " &
+     "335  (BC_1,  *,            control,      X,    336,    0,      Z),  " &
+     "334  (BC_4,  *,            control, X),                        " &
+     "333  (BC_1,  *,            control,      0),                        " &
+     "332  (BC_1,  *,            control,      X,    333,    0,      Z),  " &
+     "331  (BC_4,  *,            control, X),                        " &
+     "330  (BC_1,  *,            control,      0),                        " &
+     "329  (BC_1,  *,            control,      X,    330,    0,      Z),  " &
+     "328  (BC_4,  *,            control, X),                        " &
+     "327  (BC_1,  *,            control,      0),                        " &
+     "326  (BC_1,  *,            control,      X,    327,    0,      Z),  " &
+     "325  (BC_4,  *,            control, X),                        " &
+     "324  (BC_1,  *,            control,      0),                        " &
+     "323  (BC_1,  *,            control,      X,    324,    0,      Z),  " &
+     "322  (BC_4,  PLEND,        observe_only, X),                        " &
+     "321  (BC_1,  *,            control,      0),                        " &
+     "320  (BC_1,  PLEND,        output3,      X,    321,    0,      Z),  " &
+     "319  (BC_4,  PVCLK,        observe_only, X),                        " &
+     "318  (BC_1,  *,            control,      0),                        " &
+     "317  (BC_1,  PVCLK,        output3,      X,    318,    0,      Z),  " &
+     "316  (BC_4,  PVLINE,       observe_only, X),                        " &
+     "315  (BC_1,  *,            control,      0),                        " &
+     "314  (BC_1,  PVLINE,       output3,      X,    315,    0,      Z),  " &
+     "313  (BC_4,  PVM,          observe_only, X),                        " &
+     "312  (BC_1,  *,            control,      0),                        " &
+     "311  (BC_1,  PVM,          output3,      X,    312,    0,      Z),  " &
+     "310  (BC_4,  PVFRAME,      observe_only, X),                        " &
+     "309  (BC_1,  *,            control,      0),                        " &
+     "308  (BC_1,  PVFRAME,      output3,      X,    309,    0,      Z),  " &
+     "307  (BC_4,  PLCDVF(0),    observe_only, X),                        " &
+     "306  (BC_1,  *,            control,      0),                        " &
+     "305  (BC_1,  PLCDVF(0),    output3,      X,    306,    0,      Z),  " &
+     "304  (BC_4,  PLCDVF(1),    observe_only, X),                        " &
+     "303  (BC_1,  *,            control,      0),                        " &
+     "302  (BC_1,  PLCDVF(1),    output3,      X,    303,    0,      Z),  " &
+     "301  (BC_4,  PLCDVF(2),    observe_only, X),                        " &
+     "300  (BC_1,  *,            control,      0),                        " &
+     "299  (BC_1,  PLCDVF(2),    output3,      X,    300,    0,      Z),  " &
+     "298  (BC_4,  PVD(0),       observe_only, X),                        " &
+     "297  (BC_1,  *,            control,      0),                        " &
+     "296  (BC_1,  PVD(0),       output3,      X,    297,    0,      Z),  " &
+     "295  (BC_4,  PVD(1),       observe_only, X),                        " &
+     "294  (BC_1,  *,            control,      0),                        " &
+     "293  (BC_1,  PVD(1),       output3,      X,    294,    0,      Z),  " &
+     "292  (BC_4,  PVD(2),       observe_only, X),                        " &
+     "291  (BC_1,  *,            control,      0),                        " &
+     "290  (BC_1,  PVD(2),       output3,      X,    291,    0,      Z),  " &
+     "289  (BC_4,  PVD(3),       observe_only, X),                        " &
+     "288  (BC_1,  *,            control,      0),                        " &
+     "287  (BC_1,  PVD(3),       output3,      X,    288,    0,      Z),  " &
+     "286  (BC_4,  PVD(4),       observe_only, X),                        " &
+     "285  (BC_1,  *,            control,      0),                        " &
+     "284  (BC_1,  PVD(4),       output3,      X,    285,    0,      Z),  " &
+     "283  (BC_4,  PVD(5),       observe_only, X),                        " &
+     "282  (BC_1,  *,            control,      0),                        " &
+     "281  (BC_1,  PVD(5),       output3,      X,    282,    0,      Z),  " &
+     "280  (BC_4,  PVD(6),       observe_only, X),                        " &
+     "279  (BC_1,  *,            control,      0),                        " &
+     "278  (BC_1,  PVD(6),       output3,      X,    279,    0,      Z),  " &
+     "277  (BC_4,  PVD(7),       observe_only, X),                        " &
+     "276  (BC_1,  *,            control,      0),                        " &
+     "275  (BC_1,  PVD(7),       output3,      X,    276,    0,      Z),  " &
+     "274  (BC_4,  PVD(8),       observe_only, X),                        " &
+     "273  (BC_1,  *,            control,      0),                        " &
+     "272  (BC_1,  PVD(8),       output3,      X,    273,    0,      Z),  " &
+     "271  (BC_4,  PVD(9),       observe_only, X),                        " &
+     "270  (BC_1,  *,            control,      0),                        " &
+     "269  (BC_1,  PVD(9),       output3,      X,    270,    0,      Z),  " &
+     "268  (BC_4,  PVD(10),      observe_only, X),                        " &
+     "267  (BC_1,  *,            control,      0),                        " &
+     "266  (BC_1,  PVD(10),      output3,      X,    267,    0,      Z),  " &
+     "265  (BC_4,  PVD(11),      observe_only, X),                        " &
+     "264  (BC_1,  *,            control,      0),                        " &
+     "263  (BC_1,  PVD(11),      output3,      X,    264,    0,      Z),  " &
+     "262  (BC_4,  PVD(12),      observe_only, X),                        " &
+     "261  (BC_1,  *,            control,      0),                        " &
+     "260  (BC_1,  PVD(12),      output3,      X,    261,    0,      Z),  " &
+     "259  (BC_4,  PVD(13),      observe_only, X),                        " &
+     "258  (BC_1,  *,            control,      0),                        " &
+     "257  (BC_1,  PVD(13),      output3,      X,    258,    0,      Z),  " &
+     "256  (BC_4,  PVD(14),      observe_only, X),                        " &
+     "255  (BC_1,  *,            control,      0),                        " &
+     "254  (BC_1,  PVD(14),      output3,      X,    255,    0,      Z),  " &
+     "253  (BC_4,  PVD(15),      observe_only, X),                        " &
+     "252  (BC_1,  *,            control,      0),                        " &
+     "251  (BC_1,  PVD(15),      output3,      X,    252,    0,      Z),  " &
+     "250  (BC_4,  PVD(16),      observe_only, X),                        " &
+     "249  (BC_1,  *,            control,      0),                        " &
+     "248  (BC_1,  PVD(16),      output3,      X,    249,    0,      Z),  " &
+     "247  (BC_4,  PVD(17),      observe_only, X),                        " &
+     "246  (BC_1,  *,            control,      0),                        " &
+     "245  (BC_1,  PVD(17),      output3,      X,    246,    0,      Z),  " &
+     "244  (BC_4,  PVD(18),      observe_only, X),                        " &
+     "243  (BC_1,  *,            control,      0),                        " &
+     "242  (BC_1,  PVD(18),      output3,      X,    243,    0,      Z),  " &
+     "241  (BC_4,  PVD(19),      observe_only, X),                        " &
+     "240  (BC_1,  *,            control,      0),                        " &
+     "239  (BC_1,  PVD(19),      output3,      X,    240,    0,      Z),  " &
+     "238  (BC_4,  PVD(20),      observe_only, X),                        " &
+     "237  (BC_1,  *,            control,      0),                        " &
+     "236  (BC_1,  PVD(20),      output3,      X,    237,    0,      Z),  " &
+     "235  (BC_4,  PVD(21),      observe_only, X),                        " &
+     "234  (BC_1,  *,            control,      0),                        " &
+     "233  (BC_1,  PVD(21),      output3,      X,    234,    0,      Z),  " &
+     "232  (BC_4,  PVD(22),      observe_only, X),                        " &
+     "231  (BC_1,  *,            control,      0),                        " &
+     "230  (BC_1,  PVD(22),      output3,      X,    231,    0,      Z),  " &
+     "229  (BC_4,  PVD(23),      observe_only, X),                        " &
+     "228  (BC_1,  *,            control,      0),                        " &
+     "227  (BC_1,  PVD(23),      output3,      X,    228,    0,      Z),  " &
+     "226  (BC_4,  PTOUT(0),     observe_only, X),                        " &
+     "225  (BC_1,  *,            control,      0),                        " &
+     "224  (BC_1,  PTOUT(0),     output3,      X,    225,    0,      Z),  " &
+     "223  (BC_4,  PTOUT(1),     observe_only, X),                        " &
+     "222  (BC_1,  *,            control,      0),                        " &
+     "221  (BC_1,  PTOUT(1),     output3,      X,    222,    0,      Z),  " &
+     "220  (BC_4,  PTOUT(2),     observe_only, X),                        " &
+     "219  (BC_1,  *,            control,      0),                        " &
+     "218  (BC_1,  PTOUT(2),     output3,      X,    219,    0,      Z),  " &
+     "217  (BC_4,  PTOUT(3),     observe_only, X),                        " &
+     "216  (BC_1,  *,            control,      0),                        " &
+     "215  (BC_1,  PTOUT(3),     output3,      X,    216,    0,      Z),  " &
+     "214  (BC_4,  PTCLK,        observe_only, X),                        " &
+     "213  (BC_1,  *,            control,      0),                        " &
+     "212  (BC_1,  PTCLK,        output3,      X,    213,    0,      Z),  " &
+     "211  (BC_4,  PnXBACK,      observe_only, X),                        " &
+     "210  (BC_1,  *,            control,      0),                        " &
+     "209  (BC_1,  PnXBACK,      output3,      X,    210,    0,      Z),  " &
+     "208  (BC_4,  *,            control, X),                        " &
+     "207  (BC_1,  *,            control,      0),                        " &
+     "206  (BC_1,  *,            control,      X,    207,    0,      Z),  " &
+     "205  (BC_4,  *,            control, X),                        " &
+     "204  (BC_1,  *,            control,      0),                        " &
+     "203  (BC_1,  *,            control,      X,    204,    0,      Z),  " &
+     "202  (BC_4,  PnXDACK(0),   observe_only, X),                        " &
+     "201  (BC_1,  *,            control,      0),                        " &
+     "200  (BC_1,  PnXDACK(0),   output3,      X,    201,    0,      Z),  " &
+     "199  (BC_4,  PnXDREQ(0),   observe_only, X),                        " &
+     "198  (BC_1,  *,            control,      0),                        " &
+     "197  (BC_1,  PnXDREQ(0),   output3,      X,    198,    0,      Z),  " &
+     "196  (BC_4,  PUARTCLK,     observe_only, X),                        " &
+     "195  (BC_1,  *,            control,      0),                        " &
+     "194  (BC_1,  PUARTCLK,     output3,      X,    195,    0,      Z),  " &
+     "193  (BC_4,  PnCTS(0),     observe_only, X),                        " &
+     "192  (BC_1,  *,            control,      0),                        " &
+     "191  (BC_1,  PnCTS(0),     output3,      X,    192,    0,      Z),  " &
+     "190  (BC_4,  PnRTS(0),     observe_only, X),                        " &
+     "189  (BC_1,  *,            control,      0),                        " &
+     "188  (BC_1,  PnRTS(0),     output3,      X,    189,    0,      Z),  " &
+     "187  (BC_4,  PTXD(0),      observe_only, X),                        " &
+     "186  (BC_1,  *,            control,      0),                        " &
+     "185  (BC_1,  PTXD(0),      output3,      X,    186,    0,      Z),  " &
+     "184  (BC_4,  PRXD(0),      observe_only, X),                        " &
+     "183  (BC_1,  *,            control,      0),                        " &
+     "182  (BC_1,  PRXD(0),      output3,      X,    183,    0,      Z),  " &
+     "181  (BC_4,  PnCTS(1),     observe_only, X),                        " &
+     "180  (BC_1,  *,            control,      0),                        " &
+     "179  (BC_1,  PnCTS(1),     output3,      X,    180,    0,      Z),  " &
+     "178  (BC_4,  PnRTS(1),     observe_only, X),                        " &
+     "177  (BC_1,  *,            control,      0),                        " &
+     "176  (BC_1,  PnRTS(1),     output3,      X,    177,    0,      Z),  " &
+     "175  (BC_4,  PTXD(1),      observe_only, X),                        " &
+     "174  (BC_1,  *,            control,      0),                        " &
+     "173  (BC_1,  PTXD(1),      output3,      X,    174,    0,      Z),  " &
+     "172  (BC_4,  PRXD(1),      observe_only, X),                        " &
+     "171  (BC_1,  *,            control,      0),                        " &
+     "170  (BC_1,  PRXD(1),      output3,      X,    171,    0,      Z),  " &
+     "169  (BC_4,  *,            control, X),                        " &
+     "168  (BC_1,  *,            control,      0),                        " &
+     "167  (BC_1,  *,            control,      X,    168,    0,      Z),  " &
+     "166  (BC_4,  *,            control, X),                        " &
+     "165  (BC_1,  *,            control,      0),                        " &
+     "164  (BC_1,  *,            control,      X,    165,    0,      Z),  " &
+     "163  (BC_4,  *,            control, X),                        " &
+     "162  (BC_1,  *,            control,      0),                        " &
+     "161  (BC_1,  *,            control,      X,    162,    0,      Z),  " &
+     "160  (BC_4,  *,            control, X),                        " &
+     "159  (BC_1,  *,            control,      0),                        " &
+     "158  (BC_1,  *,            control,      X,    159,    0,      Z),  " &
+     "157  (BC_4,  PCLKOUT(0),   observe_only, X),                        " &
+     "156  (BC_1,  *,            control,      0),                        " &
+     "155  (BC_1,  PCLKOUT(0),   output3,      X,    156,    0,      Z),  " &
+     "154  (BC_4,  PCLKOUT(1),   observe_only, X),                        " &
+     "153  (BC_1,  *,            control,      0),                        " &
+     "152  (BC_1,  PCLKOUT(1),   output3,      X,    153,    0,      Z),  " &
+     "151  (BC_4,  *,            control, X),                        " &
+     "150  (BC_1,  *,            control,      0),                        " &
+     "149  (BC_1,  *,            control,      X,    150,    0,      Z),  " &
+     "148  (BC_4,  *,            control, X),                        " &
+     "147  (BC_1,  *,            control,      0),                        " &
+     "146  (BC_1,  *,            control,      X,    147,    0,      Z),  " &
+     "145  (BC_4,  *,            control, X),                        " &
+     "144  (BC_1,  *,            control,      0),                        " &
+     "143  (BC_1,  *,            control,      X,    144,    0,      Z),  " &
+     "142  (BC_4,  *,            control, X),                        " &
+     "141  (BC_1,  *,            control,      0),                        " &
+     "140  (BC_1,  *,            control,      X,    141,    0,      Z),  " &
+     "139  (BC_4,  PIICSCL,      observe_only, X),                        " &
+     "138  (BC_1,  *,            control,      0),                        " &
+     "137  (BC_1,  PIICSCL,      output3,      X,    138,    0,      Z),  " &
+     "136  (BC_4,  PIICSDA,      observe_only, X),                        " &
+     "135  (BC_1,  *,            control,      0),                        " &
+     "134  (BC_1,  PIICSDA,      output3,      X,    135,    0,      Z),  " &
+     "133  (BC_4,  PI2SLRCK,     observe_only, X),                        " &
+     "132  (BC_1,  *,            control,      0),                        " &
+     "131  (BC_1,  PI2SLRCK,     output3,      X,    132,    0,      Z),  " &
+     "130  (BC_4,  PI2SSCLK,     observe_only, X),                        " &
+     "129  (BC_1,  *,            control,      0),                        " &
+     "128  (BC_1,  PI2SSCLK,     output3,      X,    129,    0,      Z),  " &
+     "127  (BC_4,  PI2SCDCLK,    observe_only, X),                        " &
+     "126  (BC_1,  *,            control,      0),                        " &
+     "125  (BC_1,  PI2SCDCLK,    output3,      X,    126,    0,      Z),  " &
+     "124  (BC_4,  PI2SSDI,      observe_only, X),                        " &
+     "123  (BC_1,  *,            control,      0),                        " &
+     "122  (BC_1,  PI2SSDI,      output3,      X,    123,    0,      Z),  " &
+     "121  (BC_4,  PI2SSDO,      observe_only, X),                        " &
+     "120  (BC_1,  *,            control,      0),                        " &
+     "119  (BC_1,  PI2SSDO,      output3,      X,    120,    0,      Z),  " &
+     "118  (BC_4,  PSPIMISO0,    observe_only, X),                        " &
+     "117  (BC_1,  *,            control,      0),                        " &
+     "116  (BC_1,  PSPIMISO0,    output3,      X,    117,    0,      Z),  " &
+     "115  (BC_4,  PSPIMOSI0,    observe_only, X),                        " &
+     "114  (BC_1,  *,            control,      0),                        " &
+     "113  (BC_1,  PSPIMOSI0,    output3,      X,    114,    0,      Z),  " &
+     "112  (BC_4,  PSPICLK0,     observe_only, X),                        " &
+     "111  (BC_1,  *,            control,      0),                        " &
+     "110  (BC_1,  PSPICLK0,     output3,      X,    111,    0,      Z),  " &
+     "109  (BC_4,  PTXD(2),      observe_only, X),                        " &
+     "108  (BC_1,  *,            control,      0),                        " &
+     "107  (BC_1,  PTXD(2),      output3,      X,    108,    0,      Z),  " &
+     "106  (BC_4,  PRXD(2),      observe_only, X),                        " &
+     "105  (BC_1,  *,            control,      0),                        " &
+     "104  (BC_1,  PRXD(2),      output3,      X,    105,    0,      Z),  " &
+     "103  (BC_4,  PTXD(3),      observe_only, X),                        " &
+     "102  (BC_1,  *,            control,      0),                        " &
+     "101  (BC_1,  PTXD(3),      output3,      X,    102,    0,      Z),  " &
+     "100  (BC_4,  PRXD(3),      observe_only, X),                        " &
+     "99   (BC_1,  *,            control,      0),                        " &
+     "98   (BC_1,  PRXD(3),      output3,      X,    99,     0,      Z),  " &
+     "97   (BC_4,  *,            control, X),                        " &
+     "96   (BC_1,  *,            control,      0),                        " &
+     "95   (BC_1,  *,            control,      X,    96,     0,      Z),  " &
+     "94   (BC_4,  PSS(0),       observe_only, X),                        " &
+     "93   (BC_1,  *,            control,      0),                        " &
+     "92   (BC_1,  PSS(0),       output3,      X,    93,     0,      Z),  " &
+     "91   (BC_4,  *,            control, X),                        " &
+     "90   (BC_1,  *,            control,      0),                        " &
+     "89   (BC_1,  *,            control,      X,    90,     0,      Z),  " &
+     "88   (BC_4,  *,            control, X),                        " &
+     "87   (BC_1,  *,            control,      0),                        " &
+     "86   (BC_1,  *,            control,      X,    87,     0,      Z),  " &
+     "85   (BC_4,  *,            control, X),                        " &
+     "84   (BC_1,  *,            control,      0),                        " &
+     "83   (BC_1,  *,            control,      X,    84,     0,      Z),  " &
+     "82   (BC_4,  *,            control, X),                        " &
+     "81   (BC_1,  *,            control,      0),                        " &
+     "80   (BC_1,  *,            control,      X,    81,     0,      Z),  " &
+     "79   (BC_4,  *,            control, X),                        " &
+     "78   (BC_1,  *,            control,      0),                        " &
+     "77   (BC_1,  *,            control,      X,    78,     0,      Z),  " &
+     "76   (BC_4,  *,            control, X),                        " &
+     "75   (BC_1,  *,            control,      0),                        " &
+     "74   (BC_1,  *,            control,      X,    75,     0,      Z),  " &
+     "73   (BC_4,  PSD0_CLK,     observe_only, X),                        " &
+     "72   (BC_1,  *,            control,      0),                        " &
+     "71   (BC_1,  PSD0_CLK,     output3,      X,    72,     0,      Z),  " &
+     "70   (BC_4,  PSD0_CMD,     observe_only, X),                        " &
+     "69   (BC_1,  *,            control,      0),                        " &
+     "68   (BC_1,  PSD0_CMD,     output3,      X,    69,     0,      Z),  " &
+     "67   (BC_4,  PSD0_DAT(0),  observe_only, X),                        " &
+     "66   (BC_1,  *,            control,      0),                        " &
+     "65   (BC_1,  PSD0_DAT(0),  output3,      X,    66,     0,      Z),  " &
+     "64   (BC_4,  PSD0_DAT(1),  observe_only, X),                        " &
+     "63   (BC_1,  *,            control,      0),                        " &
+     "62   (BC_1,  PSD0_DAT(1),  output3,      X,    63,     0,      Z),  " &
+     "61   (BC_4,  PSD0_DAT(2),  observe_only, X),                        " &
+     "60   (BC_1,  *,            control,      0),                        " &
+     "59   (BC_1,  PSD0_DAT(2),  output3,      X,    60,     0,      Z),  " &
+     "58   (BC_4,  PSD0_DAT(3),  observe_only, X),                        " &
+     "57   (BC_1,  *,            control,      0),                        " &
+     "56   (BC_1,  PSD0_DAT(3),  output3,      X,    57,     0,      Z),  " &
+     "55   (BC_4,  *,            control, X),                        " &
+     "54   (BC_1,  *,            control,      0),                        " &
+     "53   (BC_1,  *,            control,      X,    54,     0,      Z),  " &
+     "52   (BC_4,  *,            control, X),                        " &
+     "51   (BC_1,  *,            control,      0),                        " &
+     "50   (BC_1,  *,            control,      X,    51,     0,      Z),  " &
+     "49   (BC_4,  *,            control, X),                        " &
+     "48   (BC_1,  *,            control,      0),                        " &
+     "47   (BC_1,  *,            control,      X,    48,     0,      Z),  " &
+     "46   (BC_4,  *,            control, X),                        " &
+     "45   (BC_1,  *,            control,      0),                        " &
+     "44   (BC_1,  *,            control,      X,    45,     0,      Z),  " &
+     "43   (BC_4,  PSD1_CLK,     observe_only, X),                        " &
+     "42   (BC_1,  *,            control,      0),                        " &
+     "41   (BC_1,  PSD1_CLK,     output3,      X,    42,     0,      Z),  " &
+     "40   (BC_4,  PSD1_CMD,     observe_only, X),                        " &
+     "39   (BC_1,  *,            control,      0),                        " &
+     "38   (BC_1,  PSD1_CMD,     output3,      X,    39,     0,      Z),  " &
+     "37   (BC_4,  PSD1_DAT(0),  observe_only, X),                        " &
+     "36   (BC_1,  *,            control,      0),                        " &
+     "35   (BC_1,  PSD1_DAT(0),  output3,      X,    36,     0,      Z),  " &
+     "34   (BC_4,  PSD1_DAT(1),  observe_only, X),                        " &
+     "33   (BC_1,  *,            control,      0),                        " &
+     "32   (BC_1,  PSD1_DAT(1),  output3,      X,    33,     0,      Z),  " &
+     "31   (BC_4,  PSD1_DAT(2),  observe_only, X),                        " &
+     "30   (BC_1,  *,            control,      0),                        " &
+     "29   (BC_1,  PSD1_DAT(2),  output3,      X,    30,     0,      Z),  " &
+     "28   (BC_4,  PSD1_DAT(3),  observe_only, X),                        " &
+     "27   (BC_1,  *,            control,      0),                        " &
+     "26   (BC_1,  PSD1_DAT(3),  output3,      X,    27,     0,      Z),  " &
+     "25   (BC_4,  PEXTCLK,      observe_only, X),                        " &
+     "24   (BC_4,  PEINT(0),     observe_only, X),                        " &
+     "23   (BC_1,  *,            control,      0),                        " &
+     "22   (BC_1,  PEINT(0),     output3,      X,    23,     0,      Z),  " &
+     "21   (BC_4,  PEINT(1),     observe_only, X),                        " &
+     "20   (BC_1,  *,            control,      0),                        " &
+     "19   (BC_1,  PEINT(1),     output3,      X,    20,     0,      Z),  " &
+     "18   (BC_4,  PEINT(2),     observe_only, X),                        " &
+     "17   (BC_1,  *,            control,      0),                        " &
+     "16   (BC_1,  PEINT(2),     output3,      X,    17,     0,      Z),  " &
+     "15   (BC_4,  PEINT(3),     observe_only, X),                        " &
+     "14   (BC_1,  *,            control,      0),                        " &
+     "13   (BC_1,  PEINT(3),     output3,      X,    14,     0,      Z),  " &
+     "12   (BC_4,  PEINT(4),     observe_only, X),                        " &
+     "11   (BC_1,  *,            control,      0),                        " &
+     "10   (BC_1,  PEINT(4),     output3,      X,    11,     0,      Z),  " &
+     "9    (BC_4,  PEINT(5),     observe_only, X),                        " &
+     "8    (BC_1,  *,            control,      0),                        " &
+     "7    (BC_1,  PEINT(5),     output3,      X,    8,      0,      Z),  " &
+     "6    (BC_4,  PEINT(6),     observe_only, X),                        " &
+     "5    (BC_1,  *,            control,      0),                        " &
+     "4    (BC_1,  PEINT(6),     output3,      X,    5,      0,      Z),  " &
+     "3    (BC_4,  PEINT(7),     observe_only, X),                        " &
+     "2    (BC_1,  *,            control,      0),                        " &
+     "1    (BC_1,  PEINT(7),     output3,      X,    2,      0,      Z),  " &
+     "0    (BC_4,  PnBATT_FLT,   observe_only, X)                         ";
+ 
+ end S3C2416_FBGA330;
